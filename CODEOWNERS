@@ -1,0 +1,4 @@
+# CODEOWNERS
+* @stellar-scan/maintainers
+.github/ @stellar-scan/maintainers
+src/ @stellar-scan/maintainers
