@@ -9,3 +9,7 @@ export function setStatus(id: string, status: JobStatus, result?: unknown) {
 export function getStatus(id: string) {
   return jobs.get(id);
 }
+
+export function markSuccess(id: string, result: unknown) {
+  setStatus(id, 'success', result);
+}
