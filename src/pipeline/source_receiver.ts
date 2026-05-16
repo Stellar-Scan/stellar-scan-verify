@@ -1,5 +1,7 @@
+import { assertZipSize } from '../middleware/rate_limit.js';
+
 export type SourceInput =
-  | { kind: 'zip'; files: string[] }
+  | { kind: 'zip'; files: string[]; size: number }
   | { kind: 'github'; url: string; commitSha: string };
 
 export function validateZipLayout(files: string[]) {
@@ -10,4 +12,10 @@ export function validateZipLayout(files: string[]) {
 
 export function parseGithubInput(url: string, commitSha: string): SourceInput {
   return { kind: 'github', url, commitSha };
+}
+
+export function acceptZip(files: string[], size: number): SourceInput {
+  assertZipSize(size);
+  validateZipLayout(files);
+  return { kind: 'zip', files, size };
 }
