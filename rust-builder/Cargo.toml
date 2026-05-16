@@ -3,6 +3,10 @@ name = "stellar-verify-builder"
 version = "0.1.0"
 edition = "2021"
 
+[dependencies]
+sha2 = "0.10"
+hex = "0.4"
+
 [[bin]]
 name = "stellar-verify-builder"
 path = "src/main.rs"
